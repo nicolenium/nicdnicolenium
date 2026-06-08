@@ -1,3 +1,12 @@
-import React from 'react';
-import { UnifiedSetupPage } from '@/components/UnifiedSetupPage.jsx';
-export default function ConnectFourSetupPage() { return <UnifiedSetupPage title="Connect Four" gameRoute="/connect-four-game" gameId="connect_four" />; }
+import GameSetup from '@/components/GameSetup'
+
+export default function ConnectFourSetupPage() {
+  return (
+    <GameSetup
+      gameId="connect-four"
+      gameName="Connect Four"
+      hasAI={true}
+      hasOnline={true}
+    />
+  )
+}
