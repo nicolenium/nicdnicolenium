@@ -1,3 +1,12 @@
-import React from 'react';
-import { Navigate } from 'react-router-dom';
-export default function TriviaSetupPage() { return <Navigate to="/trivia" replace />; }
+import GameSetup from '@/components/GameSetup'
+
+export default function TriviaSetupPage() {
+  return (
+    <GameSetup
+      gameId="trivia"
+      gameName="Trivia"
+      hasAI={false}
+      hasOnline={true}
+    />
+  )
+}
