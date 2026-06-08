@@ -29,6 +29,7 @@ const Checkers10x10SetupPage = lazy(() => import('@/pages/Checkers10x10SetupPage
 const LudoSetupPage = lazy(() => import('@/pages/LudoSetupPage.jsx'));
 const DominoSetupPage = lazy(() => import('@/pages/DominoSetupPage.jsx'));
 const TikTokSetupPage = lazy(() => import('@/pages/TikTokSetupPage.jsx'));
+const LanguageLearningSetupPage = lazy(() => import('@/pages/LanguageLearningSetupPage.jsx'));
 
 const HowToLearnPage = lazy(() => import('@/pages/HowToLearnPage.jsx'));
 const TermsAndConditionsPage = lazy(() => import('@/pages/TermsAndConditionsPage.jsx'));
@@ -183,6 +184,7 @@ const AppContent = () => {
               <Route path="/dominoes-setup" element={<DominoSetupPage />} />
               <Route path="/quiz-games-setup" element={<QuizGamesSetupPage />} />
               <Route path="/tiktaktok-setup" element={<TikTokSetupPage />} />
+              <Route path="/languages-learning" element={<LanguageLearningSetupPage />} />
 
               <Route path="/host-game" element={<HostGamePage />} />
               <Route path="/join-game" element={<JoinGamePage />} />
