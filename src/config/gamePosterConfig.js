@@ -2,8 +2,8 @@
 import { 
   Crown, Grid3X3, Dices, X, LayoutGrid, CircleDot, Zap, Brain, BrainCircuit, 
   Type, Search, FormInput, Hash, Calculator, Circle, Globe, FlaskConical, 
-  Calculator as MathIcon, Landmark, Map, BookOpen, Trophy, Puzzle, BookA, 
-  Spade, Club, Heart, Diamond, Ticket, Gift, Layers, Lightbulb
+  Calculator as MathIcon, Landmark, Map, BookA, Trophy, Puzzle, 
+  Spade, Heart, Layers, Lightbulb
 } from 'lucide-react';
 
 export const GAME_POSTERS = [
