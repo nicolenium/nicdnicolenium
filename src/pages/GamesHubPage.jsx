@@ -25,8 +25,8 @@ const DIFFICULTY_COLORS = {
 
 export default function GamesHubPage() {
   const [search, setSearch] = useState('')
-  const [category, setCategory] = useState('All')
   const [activeTab, setActiveTab] = useState('games')
+  const [category, setCategory] = useState('All')
   const [onlineCount, setOnlineCount] = useState(2847)
   const [showModal, setShowModal] = useState(false)
   const [selectedGame, setSelectedGame] = useState(null)
@@ -168,7 +168,7 @@ const handleStartGame = (config) => {
                   </button>
                 ))}
               </div>
-
+              {activeTab === 'games' && (
               <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
                 {filteredGames.map((game) => (
                   <div key={game.id} className="group relative overflow-hidden rounded-xl border border-slate-800 bg-slate-900/50 transition-all hover:border-indigo-500/50 hover:shadow-lg hover:shadow-indigo-500/10">
@@ -268,9 +268,9 @@ const handleStartGame = (config) => {
                 </div>
               </div>
             </div>
-          )}
+          ))}
         </div>
-
+      )}
         {showModal && (
           <CombinedGameSetupModal
             game={selectedGame}
