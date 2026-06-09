@@ -1,14 +1,14 @@
 import React, { Suspense, lazy } from 'react';
 import { Route, Routes, BrowserRouter as Router, Navigate } from 'react-router-dom';
 import { AuthProvider } from '@/contexts/AuthContext.jsx';
-import { AdminAuthProvider } from '@/contexts/AdminAuthContext.jsx';
+
 import { LanguageProvider } from '@/contexts/LanguageContext.jsx';
 import { TimeControlProvider } from '@/contexts/TimeControlContext.jsx';
 import { GameConfigProvider } from '@/contexts/GameConfigContext.jsx';
-import { Toaster } from '@/components/ui/sonner';
+
 import ScrollToTop from '@/components/ScrollToTop.jsx';
 import ErrorBoundary from '@/components/ErrorBoundary.jsx';
-import ProtectedAdminRoute from '@/components/ProtectedAdminRoute.jsx';
+
 import OnboardingGuard from '@/components/OnboardingGuard.jsx';
 import TermsAcceptanceGuard from '@/components/TermsAcceptanceGuard.jsx';
 import { Loader2 } from 'lucide-react';
@@ -85,26 +85,20 @@ const BreakoutPage = lazy(() => import('@/pages/BreakoutPage.jsx'));
 // Generic Game Template for missing games
 const GenericGamePage = lazy(() => import('@/pages/GenericGamePage.jsx'));
 
-// Admin Pages
-const AdminLoginPage = lazy(() => import('@/pages/AdminLoginPage.jsx'));
-const AdminLayout = lazy(() => import('@/pages/AdminLayout.jsx'));
-const AdminDashboardHome = lazy(() => import('@/pages/AdminDashboardHome.jsx'));
-const AdminProfilePage = lazy(() => import('@/pages/AdminProfilePage.jsx'));
-const AdminSettingsPage = lazy(() => import('@/pages/AdminSettingsPage.jsx'));
-const AdminActivityLogPage = lazy(() => import('@/pages/AdminActivityLogPage.jsx'));
-const AdminAboutPage = lazy(() => import('@/pages/AdminAboutPage.jsx'));
 
-// New Consolidated Admin Pages
-const AdminTournamentManagement = lazy(() => import('@/pages/AdminTournamentManagement.jsx'));
-const AdminUserManagement = lazy(() => import('@/pages/AdminUserManagement.jsx'));
-const AdminGameManagement = lazy(() => import('@/pages/AdminGameManagement.jsx'));
-const AdminReportsAnalytics = lazy(() => import('@/pages/AdminReportsAnalytics.jsx'));
-const ComprehensiveWebsiteErrorReview = lazy(() => import('@/pages/ComprehensiveWebsiteErrorReview.jsx'));
 
-// AI & System Debug
-const AiDebugPanel = lazy(() => import('@/admin/AiDebugPanel.jsx'));
-const GameTestSuite = lazy(() => import('@/admin/GameTestSuite.jsx'));
-const AdminSystemPage = lazy(() => import('@/admin/AdminSystemPage.jsx'));
+
+
+
+
+
+
+
+
+
+
+
+
 
 // Quick Access Targets
 const MatchManagement = lazy(() => import('@/pages/MatchManagement.jsx'));
@@ -236,36 +230,36 @@ const AppContent = () => {
               {/* Catch-all for generic mapped games from config (covers Sudoku, Crossword, etc.) */}
               <Route path="/:gameId" element={<GameGuard><GenericGamePage gameId={window.location.pathname.substring(1)} /></GameGuard>} />
 
-              {/* Admin Portal Routes */}
-              <Route path="/admin/login" element={<AdminLoginPage />} />
               
-              {/* Protected Admin Shell */}
-              <Route path="/admin" element={<ProtectedAdminRoute />}>
-                <Route element={<AdminLayout />}>
-                  <Route index element={<AdminDashboardHome />} />
-                  <Route path="dashboard" element={<AdminDashboardHome />} />
-                  <Route path="activity" element={<AdminActivityLogPage />} />
-                  <Route path="about" element={<AdminAboutPage />} />
+              
+              
+              
+              
+                
                   
-                  {/* Management & Features */}
-                  <Route path="users" element={<AdminUserManagement />} />
-                  <Route path="tournaments" element={<AdminTournamentManagement />} />
-                  <Route path="matches" element={<MatchManagement />} />
-                  <Route path="results" element={<ResultsManagement />} />
-                  <Route path="leaderboard" element={<LeaderboardManagement />} />
-                  <Route path="games" element={<AdminGameManagement />} />
-                  <Route path="sponsorship" element={<SponsorshipManagement />} />
-                  <Route path="media" element={<MediaManagement />} />
-                  <Route path="reports" element={<AdminReportsAnalytics />} />
-                  <Route path="settings" element={<AdminSettingsPage />} />
-                  <Route path="error-review" element={<ComprehensiveWebsiteErrorReview />} />
-                  <Route path="profile" element={<AdminProfilePage />} />
                   
-                  {/* AI & System Monitoring */}
-                  <Route path="ai-debug" element={<AiDebugPanel />} />
-                  <Route path="test" element={<GameTestSuite />} />
-                  <Route path="system" element={<AdminSystemPage />} />
-                </Route>
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                
               </Route>
 
               <Route path="*" element={<NotFoundPage />} />
@@ -273,7 +267,7 @@ const AppContent = () => {
           </Suspense>
         </ErrorBoundary>
       </main>
-      <Toaster toastOptions={{ className: 'bg-card text-foreground border-border font-bold' }} />
+      
     </div>
   );
 };
@@ -283,15 +277,15 @@ function App() {
     <Router>
       <LanguageProvider>
         <AuthProvider>
-          <AdminAuthProvider>
-            <GameConfigProvider>
-              <TimeControlProvider>
-                <AppContent />
-              </TimeControlProvider>
-            </GameConfigProvider>
-          </AdminAuthProvider>
-        </AuthProvider>
-      </LanguageProvider>
+          
+            
+              
+                
+              
+            
+          
+         </AuthProvider>
+        </LanguageProvider>
     </Router>
   );
 }
