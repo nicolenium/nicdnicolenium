@@ -277,14 +277,8 @@ function App() {
     <Router>
       <LanguageProvider>
         <AuthProvider>
-          
-            
-              
-                
-              
-            
-          
-         </AuthProvider>
+          <AppContent />
+           </AuthProvider>
         </LanguageProvider>
     </Router>
   );
