@@ -67,7 +67,8 @@
     "wavesurfer.js": "^7.5.2",
     "zod": "^4.3.6",
     "@clerk/clerk-react": "^5.2.0",
-    "react-router-dom": "^6.23.0"
+    "react-router-dom": "^6.23.0",
+    "@supabase/supabase-js": "^2.45.0"
   },
   "devDependencies": {
     "@babel/parser": "^7.26.3",
