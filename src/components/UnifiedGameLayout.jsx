@@ -7,7 +7,7 @@ import MoveHistoryPanel from '@/components/MoveHistoryPanel.jsx';
 import GameAnalysisPanel from '@/components/GameAnalysisPanel.jsx';
 import GameChatPanel from '@/components/GameChatPanel.jsx';
 import GameSharingPanel from '@/components/ShareGamePanel.jsx';
-import CommunityLivePanel from '@/components/CommunityLivePanel.jsx';
+
 import AVCommunicationPanel from '@/components/AVCommunicationPanel.jsx';
 import Breadcrumb from '@/components/Breadcrumb.jsx';
 import HowToPlayModal from '@/components/HowToPlayModal.jsx';
@@ -172,7 +172,7 @@ export const UnifiedGameLayout = ({
         {activePanel === 'history' && <MoveHistoryPanel history={history} onClose={() => setActivePanel(null)} gameType={gameType} />}
         {activePanel === 'analysis' && <GameAnalysisPanel history={history} analysisData={aiAnalysisData} onClose={() => setActivePanel(null)} moveCount={history.length} />}
         {activePanel === 'chat' && <GameChatPanel currentUser={currentUser} onClose={() => setActivePanel(null)} gameSessionId={gameType} />}
-        {activePanel === 'community' && <CommunityLivePanel onClose={() => setActivePanel(null)} />}
+        
         {activePanel === 'av' && <AVCommunicationPanel onClose={() => setActivePanel(null)} />}
       </div>
 
