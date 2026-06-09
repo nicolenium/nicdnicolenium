@@ -12,7 +12,7 @@ import { Label } from '@/components/ui/label.jsx';
 import { toast } from 'sonner';
 import pb from '@/lib/pocketbaseClient.js';
 import { useAuth } from '@/contexts/AuthContext.jsx';
-import CommunityLivePanel from '@/components/CommunityLivePanel.jsx';
+
 
 const GAME_TYPES = [
   { id: 'checkers', name: 'Checkers' },
@@ -314,11 +314,11 @@ const GameRoomPage = () => {
         )}
       </main>
       
-      {/* Community Live Panel on the right side for desktop */}
-      <div className="hidden xl:block w-80 shrink-0 border-l border-border bg-card/30 relative">
-        <CommunityLivePanel />
-      </div>
-    </div>
+      
+      
+        
+      
+    
   );
 };
 
