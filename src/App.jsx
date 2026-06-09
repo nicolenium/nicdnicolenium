@@ -260,7 +260,7 @@ const AppContent = () => {
                   
                   
                 
-              </Route>
+              
 
               <Route path="*" element={<NotFoundPage />} />
             </Routes>
