@@ -10,7 +10,7 @@ import GameSharingPanel from '@/components/ShareGamePanel.jsx';
 
 import AVCommunicationPanel from '@/components/AVCommunicationPanel.jsx';
 import Breadcrumb from '@/components/Breadcrumb.jsx';
-import HowToPlayModal from '@/components/HowToPlayModal.jsx';
+
 import GameSettingsModal from '@/components/GameSettingsModal.jsx';
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription, DialogFooter } from '@/components/ui/dialog.jsx';
 import { useSoundEffects } from '@/utils/soundManager.js';
@@ -197,7 +197,7 @@ export const UnifiedGameLayout = ({
       </Dialog>
       
       {/* Modals */}
-      {showHelpModal && <HowToPlayModal gameName={gameType} onClose={() => setShowHelpModal(false)} />}
+      
       <GameSettingsModal open={showSettingsModal} onOpenChange={setShowSettingsModal} />
     </div>
   );
