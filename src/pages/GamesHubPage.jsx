@@ -54,23 +54,39 @@ export default function GamesHubPage() {
     setSelectedMode(mode)
     setShowModal(true)
   }
-
-  const handleStartGame = (config) => {
-    const params = new URLSearchParams({
-      time: config.timeControl,
-      mode: config.mode,
-      rated: config.rated,
-      allowUndo: config.allowUndo,
-      allowChat: config.allowChat,
-      allowSpectators: config.allowSpectators,
-      voiceChat: config.voiceChat,
-      analysis: config.analysis,
-      aiDifficulty: config.aiDifficulty,
-      boardTheme: config.boardTheme,
-      pieceStyle: config.pieceStyle
-    })
-    window.location.href = `/play/${config.gameId}?${params.toString()}`
+const handleStartGame = (config) => {
+  // 1. Make sure we know which game was picked
+  if (!selectedGame || !selectedGame.id) {
+    console.error('No game selected:', selectedGame);
+    alert('Error: No game selected. Pick a game first.');
+    return;
   }
+ 
+  // 2. Build the URL with all the settings from the modal
+  const params = new URLSearchParams({
+    time: config.timeControl,
+    mode: config.mode,
+    rated: config.rated,
+    allowUndo: config.allowUndo,
+    allowChat: config.allowChat,
+    allowSpectators: config.allowSpectators,
+    voiceChat: config.voiceChat,
+    analysis: config.analysis,
+    aiDifficulty: config.aiDifficulty,
+    boardTheme: config.boardTheme,
+    pieceStyle: config.pieceStyle
+  })
+ 
+  // 3. Debug logs so you can see what happens
+  console.log('Starting game:', selectedGame.id, 'with config:', config);
+  console.log('Redirecting to:', `/play/${selectedGame.id}?${params.toString()}`);
+ 
+  // 4. Actually go to the game page
+  window.location.href = `/play/${selectedGame.id}?${params.toString()}`
+}
+
+
+  
 
   const handleJoinRoom = (roomId) => {
     window.location.href = `/room/${roomId}`
