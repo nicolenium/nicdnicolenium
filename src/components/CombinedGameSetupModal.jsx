@@ -1,7 +1,9 @@
 import { useState } from 'react'
 import { X, User, Swords, Globe, Clock, Users } from 'lucide-react'
 
-export default function CombinedGameSetupModal({ game, mode, onClose, onStart }) {
+export default function CombinedGameSetupModal({ isOpen, game, mode, onClose, onGameStart }) {
+  if (!isOpen || !game) return null
+
   const [timeMode, setTimeMode] = useState('preset')
   const [selectedTime, setSelectedTime] = useState('10+0')
   const [customMinutes, setCustomMinutes] = useState(10)
@@ -24,8 +26,8 @@ export default function CombinedGameSetupModal({ game, mode, onClose, onStart })
       ? selectedTime
       : `${customMinutes}+${customIncrement}`
    
-    onStart?.({
-      game: game?.id,
+    onGameStart?.({
+      gameId: game.id,
       mode,
       timeControl,
       rated,
@@ -33,21 +35,21 @@ export default function CombinedGameSetupModal({ game, mode, onClose, onStart })
     })
     onClose?.()
   }
-return (
-  <div
-    className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 p-4"
-    onClick={onClose}
-  >
+
+  return (
     <div
-      className="w-full max-w-md rounded-xl bg-slate-900 p-6 text-white shadow-xl"
-      onClick={(e) => e.stopPropagation()}
+      className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 p-4"
+      onClick={onClose}
     >
-      <div className="flex items-center justify-between">
-        <h2 className="text-xl font-bold">Setup: {game?.name}</h2>
-        <button onClick={onClose} className="rounded-lg p-1 hover:bg-slate-800">
-          <X className="w-5 h-5" />
-        </button>
-        
+      <div
+        className="w-full max-w-md rounded-xl bg-slate-900 p-6 text-white shadow-xl"
+        onClick={(e) => e.stopPropagation()}
+      >
+        <div className="flex items-center justify-between">
+          <h2 className="text-xl font-bold">Setup: {game.name || game.title}</h2>
+          <button onClick={onClose} className="rounded-lg p-1 hover:bg-slate-800">
+            <X className="w-5 h-5" />
+          </button>
         </div>
 
         <div className="mt-4 flex items-center gap-2 rounded-lg bg-slate-800 px-3 py-2 text-sm">
