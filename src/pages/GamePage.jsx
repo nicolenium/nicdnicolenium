@@ -1,6 +1,5 @@
 import { useState } from 'react'
 import { useParams } from 'react-router-dom'
-import { Helmet } from 'react-helmet'
 import GenericGamePage from './GenericGamePage'
 
 export default function GamePage() {
@@ -13,7 +12,7 @@ export default function GamePage() {
     agreedToTerms: false
   })
 
-  const gameName = gameId?.charAt(0).toUpperCase() + gameId?.slice(1) || 'Game'
+  const gameName = gameId ? gameId.replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase()) : 'Game'
 
   if (gameStarted) {
     return <GenericGamePage gameId={gameId} settings={gameSettings} />
@@ -21,7 +20,6 @@ export default function GamePage() {
 
   return (
     <div className="min-h-screen bg-slate-950 text-white">
-      <Helmet><title>{gameName} - Setup</title></Helmet>
       <div className="max-w-2xl mx-auto p-4">
         <h1 className="text-3xl font-bold mb-6">{gameName}</h1>
        
