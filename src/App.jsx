@@ -1,12 +1,17 @@
-import { Routes, Route } from 'react-router-dom'
-import HomePage from './pages/HomePage'
-import GamePage from './pages/GamePage'
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
 
-export default function App() {
+function Home() {
+  return <h1>Site is working</h1>
+}
+
+function App() {
   return (
-    <Routes>
-      <Route path="/" element={<HomePage />}/>
-      <Route path="/game/:gameId" element={<GamePage />}/>
-    </Routes>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Home />} />
+      </Routes>
+    </BrowserRouter>
   )
 }
+
+export default App
