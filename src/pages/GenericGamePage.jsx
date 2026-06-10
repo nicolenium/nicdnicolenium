@@ -1,35 +1,35 @@
-import React from 'react';
-import { UnifiedGameLayout } from '@/components/UnifiedGameLayout.jsx';
-import { Helmet } from 'react-helmet';
+import { useParams } from 'react-router-dom'
 
-export default function GenericGamePage({ gameId, mode, timeControl, rated }) {
-  const title = gameId? gameId.replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase()) : "Game";
+export default function GenericGamePage({ gameId, settings }) {
+  const params = useParams()
+  const id = gameId || params.gameId
+  const title = id ? id.replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase()) : "Game"
 
   return (
-    <>
-      <Helmet><title>{title} | NICOLENIUM</title></Helmet>
-      <UnifiedGameLayout title={title} turnText="Playing">
-        <div className="flex flex-col items-center justify-center min-h-[60vh] bg-card rounded-3xl border-2 border-border shadow-xl p-8 text-center">
-          <h2 className="text-4xl font-black text-primary mb-4">{title}</h2>
-          <p className="text-xl text-muted-foreground font-medium max-w-md mb-6">
-            Welcome to {title}. The game is fully active and ready to play.
+    <div className="min-h-screen bg-slate-950 text-white p-8">
+      <div className="max-w-4xl mx-auto">
+        <h1 className="text-4xl font-black text-indigo-400 mb-8">{title}</h1>
+       
+        <div className="bg-slate-900 rounded-xl border-2 border-slate-800 p-8">
+          <h2 className="text-2xl font-bold mb-4">Game Settings</h2>
+          <div className="bg-slate-950 rounded-lg p-4 mb-6">
+            <pre className="text-sm text-slate-400">
+              {JSON.stringify(settings || {
+                mode: 'computer',
+                timeControl: '10+0',
+                rated: false
+              }, null, 2)}
+            </pre>
+          </div>
+         
+          <p className="text-lg text-slate-300 mb-2">
+            Welcome to {title}. The game is ready to play.
           </p>
-
-          <div className="mt-4 p-6 bg-muted/50 rounded-2xl border border-border w-full max-w-lg text-left">
-            <h3 className="font-bold text-lg mb-3">Game Settings</h3>
-            <div className="space-y-2 text-sm text-muted-foreground">
-              <p><span className="font-semibold text-foreground">Mode:</span> {mode}</p>
-              <p><span className="font-semibold text-foreground">Time Control:</span> {timeControl}</p>
-              <p><span className="font-semibold text-foreground">Rated:</span> {rated? 'Yes' : 'No'}</p>
-            </div>
-          </div>
-
-          <div className="mt-8 p-6 bg-muted/50 rounded-2xl border border-border w-full max-w-lg">
-            <p className="text-sm text-muted-foreground">Game session initialized successfully.</p>
-            <p className="text-xs text-muted-foreground mt-2">Real game logic goes here later.</p>
-          </div>
+          <p className="text-slate-500">
+            Game engine coming soon...
+          </p>
         </div>
-      </UnifiedGameLayout>
-    </>
-  );
+      </div>
+    </div>
+  )
 }
